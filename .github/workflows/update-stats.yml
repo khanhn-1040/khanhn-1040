@@ -3,7 +3,7 @@ name: Update README.md
 on:
   schedule:
     - cron: '0 5 * * *'  # Runs at 12:00 PM VNT (5:00 AM UTC)
-    - cron: '0 09 * * *' # Runs at 8:00 PM VNT (1:00 PM UTC)
+    - cron: '0 9 * * *' # Runs at 4:00 PM VNT (9:00 AM UTC)
   workflow_dispatch:
 
 jobs:
@@ -23,9 +23,11 @@ jobs:
         COMMIT_MESSAGE: "🚀 update metrics"
         COMMIT_USER_NAME: "khanhn-1040"
         COMMIT_USER_EMAIL: "nguyen.khanh@sun-asterisk.com"
+        WAKATIME_DATA: "EDITORS,LANGUAGES,PROJECTS,OPERATING_SYSTEMS"
         SHOW_METRICS: "COMMIT_TIME_OF_DAY,LANGUAGE_PER_REPO,COMMIT_DAYS_OF_WEEK"
         TIME_ZONE: "Asia/Ho_Chi_Minh"
         TIME_LAYOUT: "2006-01-02 15:04:05 MST"
         SHOW_LAST_UPDATE: "true"
         ONLY_MAIN_BRANCH: "true"
         HIDE_REPO_INFO: "true"
+        WAKATIME_RANGE: "all_time"
