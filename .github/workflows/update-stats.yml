@@ -2,8 +2,7 @@ name: Update README.md
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # Runs at 12:00 PM VNT (5:00 AM UTC)
-    - cron: '0 9 * * *' # Runs at 4:00 PM VNT (9:00 AM UTC)
+    - cron: '0 13 * * *' # Runs at 8:00 PM VNT (1:00 PM UTC)
   workflow_dispatch:
 
 jobs:
@@ -16,18 +15,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Run GitHub Stats Action
-      uses: khanhn-1040/github-stats@master
+      uses: thanhhaudev/github-stats@master
       env:
         BRANCH_NAME: ${{ github.ref_name }}
+        WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
         GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         COMMIT_MESSAGE: "🚀 update metrics"
         COMMIT_USER_NAME: "khanhn-1040"
         COMMIT_USER_EMAIL: "nguyen.khanh@sun-asterisk.com"
-        WAKATIME_DATA: "EDITORS,LANGUAGES,PROJECTS,OPERATING_SYSTEMS"
-        SHOW_METRICS: "COMMIT_TIME_OF_DAY,LANGUAGE_PER_REPO,COMMIT_DAYS_OF_WEEK"
+        WAKATIME_RANGE: "all_time"
+        WAKATIME_DATA: "EDITORS,LANGUAGES,OPERATING_SYSTEMS"
+        SHOW_METRICS: "COMMIT_TIME_OF_DAY,WAKATIME_SPENT_TIME,LANGUAGE_PER_REPO,COMMIT_DAYS_OF_WEEK,LANGUAGES_BASED_ON_REPO"
         TIME_ZONE: "Asia/Ho_Chi_Minh"
         TIME_LAYOUT: "2006-01-02 15:04:05 MST"
         SHOW_LAST_UPDATE: "true"
         ONLY_MAIN_BRANCH: "true"
-        HIDE_REPO_INFO: "true"
-        WAKATIME_RANGE: "all_time"
+        HIDE_REPO_INFO: "true"  
