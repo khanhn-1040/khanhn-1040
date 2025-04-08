@@ -1,8 +1,6 @@
 name: Update README.md
 
 on:
-  schedule:
-    - cron: '0 13 * * *' # Runs at 8:00 PM VNT (1:00 PM UTC)
   workflow_dispatch:
 
 jobs:
